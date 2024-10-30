@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reactstore
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: reactstore 
+  template:
+    metadata:
+      labels:
+        app: reactstore
+    spec:
+      containers:
+        - name: reactstore
+          image: janak123/react_store:latest  # Specify full path with Docker Hub username
+          ports:
+            - containerPort: 3000
